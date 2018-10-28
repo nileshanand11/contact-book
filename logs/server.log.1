@@ -1,0 +1,140 @@
+2018-10-28 20:36:58,391 ERROR: Exception on /index [GET] [in /Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/nilesh/contact-book/app/main/routes.py", line 32, in index
+    contacts='')
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/nilesh/contact-book/app/templates/index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "/Users/nilesh/contact-book/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
+    {%- block html %}
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
+    {% block body -%}
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 21, in block "body"
+    {% block navbar %}
+  File "/Users/nilesh/contact-book/app/templates/base.html", line 28, in block "navbar"
+    <li><a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('Profile') }}</a></li>
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/helpers.py", line 345, in url_for
+    force_external=external)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.user' with values ['username']. Did you mean 'main.explore' instead?
+2018-10-28 23:28:28,535 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 23:28:44,180 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 23:28:52,435 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 23:30:09,870 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 23:30:31,098 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 23:30:43,705 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 23:32:08,696 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 23:44:29,817 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 23:44:48,843 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 23:45:21,407 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 23:45:32,578 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 23:46:01,262 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 23:46:54,880 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 23:59:23,334 ERROR: Exception on /index [POST] [in /usr/local/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.InterfaceError: Error binding parameter 4 - probably unsupported type.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/nilesh/contact-book/app/main/routes.py", line 30, in index
+    db.session.commit()
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 906, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 461, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2177, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2297, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 187, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2261, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 389, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 548, in execute
+    uow
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 835, in _emit_insert_statements
+    execute(statement, params)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.InterfaceError: <unprintable InterfaceError object>

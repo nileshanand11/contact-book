@@ -1,0 +1,126 @@
+2018-10-28 19:25:20,240 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:26:25,878 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:27:03,510 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:33:27,247 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:33:50,291 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:34:41,889 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:36:10,017 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:36:29,626 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:39:10,223 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:39:23,034 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:45:14,565 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:45:31,454 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:45:41,396 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:46:52,491 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:47:10,381 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:47:20,371 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:47:28,997 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:47:45,469 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:48:11,260 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:50:53,881 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:51:53,785 INFO: Service startup [in /Users/nilesh/contact-book/app/__init__.py:74]
+2018-10-28 19:54:45,432 ERROR: Exception on /index [GET] [in /Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/nilesh/contact-book/app/main/routes.py", line 38, in index
+    posts = current_user.followed_posts().paginate(
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'User' object has no attribute 'followed_posts'
+2018-10-28 19:55:05,839 ERROR: Exception on /index [GET] [in /Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/nilesh/contact-book/app/main/routes.py", line 38, in index
+    posts = current_user.followed_posts().paginate(
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'User' object has no attribute 'followed_posts'
+2018-10-28 19:55:10,303 ERROR: Exception on /index [GET] [in /Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/nilesh/contact-book/app/main/routes.py", line 38, in index
+    posts = current_user.followed_posts().paginate(
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'User' object has no attribute 'followed_posts'
+2018-10-28 19:55:18,112 ERROR: Exception on / [GET] [in /Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/nilesh/contact-book/app/main/routes.py", line 38, in index
+    posts = current_user.followed_posts().paginate(
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'User' object has no attribute 'followed_posts'
+2018-10-28 19:55:20,064 ERROR: Exception on /index [GET] [in /Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/nilesh/contact-book/app/main/routes.py", line 38, in index
+    posts = current_user.followed_posts().paginate(
+  File "/Users/nilesh/contact-book/venv/lib/python3.7/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'User' object has no attribute 'followed_posts'
