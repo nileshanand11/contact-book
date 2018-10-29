@@ -1,6 +1,6 @@
 from flask import request
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField, IntegerField
+from wtforms import StringField, SubmitField, TextAreaField, IntegerField, SelectField
 from wtforms.validators import ValidationError, DataRequired, Length, Email
 # from flask_table import Table, Col
 from flask_babel import _, lazy_gettext as _l
@@ -37,6 +37,27 @@ class ContactForm(FlaskForm):
         email = Contact.query.filter_by(email=self.email.data,user_id=current_user.id).first()
         if email is not None:
             raise ValidationError(_('Contact already added!'))
+
+class ContactEditForm(FlaskForm):
+    name = StringField(_l('Name'), validators=[DataRequired()])
+    phone_no = IntegerField(_l('Contact Number'), validators=[DataRequired()])
+    email = StringField(_l('Email'), validators=[DataRequired(), Email()])
+    submit = SubmitField(_l('Submit'))
+
+    def __init__(self, original_email, *args, **kwargs):
+        super(ContactEditForm, self).__init__(*args, **kwargs)
+        self.original_email = original_email
+
+    def validate_email(self, email):
+        if email.data != self.original_email:
+            email = Contact.query.filter_by(email=self.email.data,user_id=current_user.id).first()
+            if email is not None:
+                raise ValidationError(_('Contact already added!'))  
+
+class ContactSearchForm(FlaskForm):
+    choices = [('phone_no', 'Phone Number'), ('email', 'Email Id')]
+    select = SelectField('Search contact:', choices=choices)
+    search = StringField('')
 
 # class ContactsView(Table):
 #     id = Col('Id', show=False)

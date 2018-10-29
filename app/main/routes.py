@@ -5,7 +5,7 @@ from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from guess_language import guess_language
 from app import db
-from app.main.forms import EditProfileForm, ContactForm
+from app.main.forms import EditProfileForm, ContactForm, ContactEditForm, ContactSearchForm
 from app.models import User, Contact
 from app.main import bp
 import sys
@@ -23,8 +23,6 @@ def before_request():
 def index():
     form = ContactForm()
     if form.validate_on_submit():
-        # print (request.form)
-        # print(form, file=sys.stderr)
         contact = Contact(name=form.name.data, phone_no=form.phone_no.data, email=form.email.data, user_id=current_user.id)
         db.session.add(contact)
         db.session.commit()
@@ -36,7 +34,8 @@ def index():
 @login_required
 def explore():
     page = request.args.get('page', 1, type=int)
-    contacts = Contact.query.order_by(Contact.timestamp.desc()).paginate(
+    kwargs = {'user_id' : current_user.id}
+    contacts = Contact.query.filter_by(**kwargs).order_by(Contact.timestamp.desc()).paginate(
         page, current_app.config['CONTACTS_PER_PAGE'], False)
     next_url = url_for('main.explore', page=contacts.next_num) \
         if contacts.has_next else None
@@ -63,4 +62,52 @@ def edit_profile():
     return render_template('edit_profile.html', title=_('Edit Profile'),
                            form=form)
 
+@bp.route('/edit/<int:id>', methods=["POST", "GET"])
+def update_contact(id):
+    cnc = Contact.query.get(id)
+    form = ContactEditForm(cnc.email)
+    if request.method == "POST":
+        if form.validate_on_submit():
+            cnc.name = form.name.data
+            cnc.phone_no = form.phone_no.data
+            cnc.email = form.email.data
+            db.session.commit()
+            return redirect(url_for('main.explore'))
+
+    else:
+        form.name.data=cnc.name
+        form.phone_no.data=cnc.phone_no
+        form.email.data=cnc.email
+
+    return render_template('index.html', title=_('Explore'), form=form)
+
+@bp.route('/delete/<int:id>', methods=["POST", "GET"])
+def delete_contact(id):
+    cnc = Contact.query.get(id)
+    db.session.delete(cnc)
+    db.session.commit()
+    return redirect(url_for('main.explore'))
+
+@bp.route('/search', methods=['GET', 'POST'])
+def search_contacts():
+    form = ContactSearchForm(request.form)
+    if request.method == 'POST':
+        return search_results(form)
+    return render_template('search_contacts.html', form=form)
+
+@bp.route('/search_results', methods=['GET', 'POST'])
+def search_results(form):
+    attribute = form.data['select']
+    search_string = form.data['search']
+    page = request.args.get('page', 1, type=int)
+    kwargs = {attribute : search_string, 'user_id' : current_user.id }
+    contacts = Contact.query.filter_by(**kwargs).order_by(Contact.timestamp.desc()).paginate(
+        page, current_app.config['CONTACTS_PER_PAGE'], False)
+    next_url = url_for('main.explore', page=contacts.next_num) \
+        if contacts.has_next else None
+    prev_url = url_for('main.explore', page=contacts.prev_num) \
+        if contacts.has_prev else None
+    return render_template('index.html', title=_('Contacts List'),
+                           contacts=contacts.items, next_url=next_url,
+                           prev_url=prev_url)
 
