@@ -18,5 +18,5 @@ class Config(object):
     ADMINS = ['nileshanand11@gmail.com']
     LANGUAGES = ['en', 'es']
     MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
-    CONTACTS_PER_PAGE = 5
+    CONTACTS_PER_PAGE = 10
     LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
